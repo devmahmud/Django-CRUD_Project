@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block title %}Edit book{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <div class="small_div">
+        <br>
+        <h2>Edit book</h2>
+        <hr>
+        <form action="{% url 'edit' book.id %}" method="POST">
+            {% csrf_token %}
+            <label class="form-group" for="title">Title: </label>
+            <input class="form-control" type="text" name="title" value="{{ book.title }}"><br>
+
+            <label class="form-group" for="price">Price: </label>
+            <input class="form-control" type="text" name="price" value="{{ book.price }}"><br>
+
+            <label class="
+                form-group" for="author">Author: </label>
+            <input class="form-control" type="text" name="author" value="{{ book.author }}"><br>
+
+            <input class="
+                btn btn-success" type="submit" value="Update">
+
+        </form>
+        <br>
+
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block title %}Home Page{% endblock title %}
+{% block content %}
+
+<div class="container"><br>
+    <h2>Book List</h2>
+    <hr>
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Author</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+
+            {% for book in books %}
+            <tr>
+                <td>{{ book.title }}</td>
+                <td>{{ book.price }}</td>
+                <td>{{ book.author }}</td>
+                <td><a class="btn btn-info" href="{% url 'edit' book.id %}">Edit</a>
+                    <a class="btn btn-danger" href="{% url 'delete' book.id %}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+
+        </tbody>
+    </table>
+    <a class="btn btn-primary" href="{% url 'add' %}">Add Book</a>
+</div>
+
+{% endblock content %}
+
+
+</body>
+
+</html>
